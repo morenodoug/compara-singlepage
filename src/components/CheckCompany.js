@@ -8,6 +8,8 @@ class CheckCompany extends Component {
 
     handleOnChange(e){
         console.log(e.target.name);
+        console.log(e.target.checked);
+        this.props.updateFilterByCompany(e.target.name, e.target.checked);
         
     }
     
@@ -17,7 +19,13 @@ class CheckCompany extends Component {
         return(
             <div  className="row">
                 <label>
-                    <input name={this.props.company.id} type="checkbox" onChange={this.handleOnChange}  checked="true"/> {this.props.company.name}  
+                    <input
+                        checked = {this.props.checkedInput}
+                        name = {this.props.company.id} 
+                        type = "checkbox" 
+                        onChange = {this.handleOnChange}  /> 
+                        
+                        {this.props.company.name}  
                 </label> 
             </div>
         );        

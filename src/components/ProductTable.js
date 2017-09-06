@@ -9,8 +9,16 @@ class ProductTable extends Component {
     }
 
     render(){
+        //filtrar por compañia
+        let filterByCompany = this.props.companies.filter( (company) =>{
+            return this.props.filterByCompany[company.id];
+               
+        });
+        console.log('product table')
+        console.log(filterByCompany.length);
+
         //agregar nombre de la compañia e imagen a cada oferta
-        let offersWithImage = this.props.companies.map((company) => {
+        let offersWithImage = filterByCompany.map((company) => {
             return company.offers.map((offer) => {
                 offer.imageCompanyUrl = company.imageUrl;
                 offer.name = company.name;

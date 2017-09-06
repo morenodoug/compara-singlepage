@@ -19,7 +19,10 @@ class FilterPanelComponent extends Component {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <CompanyFilter companiesInfo={this.props.companiesInfo}/>
+                        <CompanyFilter 
+                            companiesInfo = {this.props.companiesInfo}
+                            filterByCompany = {this.props.filterByCompany}
+                            updateFilterByCompany = {this.props.updateFilterByCompany}/>
                     </div>
 
                 </div>
