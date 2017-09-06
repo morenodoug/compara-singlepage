@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import CheckCompany from './CheckCompany';
 
-
-function checkCompany(props){
-    return(
-        <div key={props.id} className="row">
-            <label><input name={props.id} type="checkbox"  checked="true"/> {props.name}  </label> 
-        </div>
-    )
-}
+// function checkCompany(props){
+//     return(
+//         <div key={props.id} className="row">
+//             <label><input name={props.id} type="checkbox"  checked="true"/> {props.name}  </label> 
+//         </div>
+//     )
+// }
 class CompanyFilter extends Component {
 
     constructor(props){
@@ -16,8 +16,9 @@ class CompanyFilter extends Component {
     }
 
 
+
     render() {
-        let filterCompanies = this.props.companiesInfo.map((company) =>( checkCompany(company)));
+        let filterCompanies = this.props.companiesInfo.map((company) =>( <CheckCompany key={company.id} company={company}/> ));
         console.log(filterCompanies );
 
         return(

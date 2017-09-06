@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CompanyFilter from './CompanyFilter';
+import DeduticblesFilter from './DeductiblesFilter';
 
 
 class FilterPanelComponent extends Component {
