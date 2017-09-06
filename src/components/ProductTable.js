@@ -31,9 +31,17 @@ class ProductTable extends Component {
         return (
             <div>
                 <div > 
-                    <div className="row">
+                    <div className="row ">
                         <div className="col-md-6"><h3>{showlength} </h3></div>
-                        <div className="col-md-6">adasd</div>
+                        <div className="col-md-6">
+
+                            <select value="lime"  className="form-control">
+                                <option value="grapefruit">Grapefruit</option>
+                                <option value="lime">Lime</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="mango">Mango</option>
+                            </select>                            
+                        </div>
                     </div>
 
                 </div>

@@ -176,5 +176,8 @@ const DATA = {
 };
 
 
-ReactDOM.render(<App data={DATA} />, document.getElementById('root'));
+let companiesInfo = DATA.allCompanies.map((company) => ({ name: company.name, id: company.id }))
+
+
+ReactDOM.render(<App data={DATA}  companiesInfo={companiesInfo}/>, document.getElementById('root'));
 registerServiceWorker();
