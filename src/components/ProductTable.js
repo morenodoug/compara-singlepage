@@ -21,10 +21,10 @@ class ProductTable extends Component {
 
         //generar cara offerRow
         let offerRows = flatOffersWithImage.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
-        console.log(flatOffersWithImage);
-        console.log(offerRows);
+        // console.log(flatOffersWithImage);
+        // console.log(offerRows);
 
-        let showlength = (flatOffersWithImage.length == 1) ? 
+        let showlength = (flatOffersWithImage.length === 1) ? 
                         `${flatOffersWithImage.length} result` :
                         `${flatOffersWithImage.length} results`;
 

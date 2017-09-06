@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import ProductTable from '../src/components/ProductTable'
+import FilterPanelComponent from '../src/components/FilterPanelComponent';
 
 
 class App extends Component {
@@ -15,10 +16,10 @@ class App extends Component {
     return (
       <div className="row">
           <div className="col-md-4">
-            <h1>asdasdsad</h1>
+            <FilterPanelComponent  companiesInfo={this.props.companiesInfo}/>
           </div>
           <div className="col-md-8">
-            <ProductTable  companies={this.props.data.allCompanies}/>
+            <ProductTable  companies={this.props.data.allCompanies} />
           </div>
       </div>
     );
