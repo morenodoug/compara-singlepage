@@ -27,3 +27,7 @@
 .offer-info {
     padding-left: 10em;
 }
+
+.filter-panel {
+    border: 2px solid black;
+}

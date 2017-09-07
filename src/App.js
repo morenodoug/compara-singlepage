@@ -107,8 +107,9 @@ class App extends Component {
   render() {
     return (
       <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4  filter-panel">
             <FilterPanelComponent 
+           
              companiesInfo = {this.state.allCompanies} 
              filterByCompany = {this.state.filterByCompany}
              updateFilterByCompany = {this.updateFilterByCompany}
@@ -118,7 +119,7 @@ class App extends Component {
              updateFilterByPrice = {this.updateFilterByPrice}
              />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-7 col-md-offset-1">
             <ProductTable  
               companies={this.state.allData} 
               filterByCompany = {this.state.filterByCompany}
