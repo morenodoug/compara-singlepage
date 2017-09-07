@@ -29,15 +29,21 @@ class ProductTable extends Component {
 
 
         //filtrar por deductibles
-
         let offersWithDeductibles = flatOffersWithImage.filter((offer) =>{
             return this.props.filterByDeductibles[offer.deductible]
         });
           console.log('offersWithDeductibles');
         console.log(offersWithDeductibles);
         
+
+        //offer with prices
+        let offersWithPrices = offersWithDeductibles.filter((offer) =>{
+            return offer.price<= this.props.filterByPrice
+        });
+        
+
         //generar cada offerRow
-        let offerRows = offersWithDeductibles.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
+        let offerRows = offersWithPrices.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
         // console.log(flatOffersWithImage);
         // console.log(offerRows);
 

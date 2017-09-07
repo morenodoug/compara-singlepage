@@ -15,7 +15,8 @@ class App extends Component {
 
     this.updateFilterByCompany = this.updateFilterByCompany.bind(this);
     this.updateFilterByDeductibles = this.updateFilterByDeductibles.bind(this);
-    
+    this.updateFilterByPrice = this.updateFilterByPrice.bind(this);
+
     console.log(`companies:`);
     console.log(companies);
     let filterByCompany ={};
@@ -26,6 +27,8 @@ class App extends Component {
       '7': true
     }
 
+    let filterByPrice=50;
+
     companies.forEach((element) => {
       filterByCompany[element.id] =true;  
     });
@@ -34,7 +37,8 @@ class App extends Component {
     this.state ={
       allCompanies:companies,
       filterByCompany,
-      filterByDeductibles
+      filterByDeductibles,
+      filterByPrice
     }
    
 
@@ -65,6 +69,14 @@ class App extends Component {
     })
   }
 
+  updateFilterByPrice(price){
+    this.setState((prevState,props) =>{
+      return {
+        filterByPrice:price
+      };
+    })
+  }
+
   render() {
     return (
       <div className="row">
@@ -75,13 +87,16 @@ class App extends Component {
              updateFilterByCompany = {this.updateFilterByCompany}
              filterByDeductibles = {this.state.filterByDeductibles}
              updateFilterByDeductibles = {this.updateFilterByDeductibles} 
+             filterByPrice = {this.state.filterByPrice}
+             updateFilterByPrice = {this.updateFilterByPrice}
              />
           </div>
           <div className="col-md-8">
             <ProductTable  
               companies={this.props.data.allCompanies} 
               filterByCompany = {this.state.filterByCompany}
-              filterByDeductibles = {this.state.filterByDeductibles}/>
+              filterByDeductibles = {this.state.filterByDeductibles}
+              filterByPrice = {this.state.filterByPrice}/>
           </div>
       </div>
     );
