@@ -17,7 +17,7 @@ class CheckDeductible extends Component {
     render(){
 
         return(
-            <div  className="">
+            <div  className="col-md-1">
                 <label>
                     <input
                         name= {this.props.deductibleName}
@@ -25,8 +25,7 @@ class CheckDeductible extends Component {
                         type = "checkbox" 
                         onChange = {this.handleOnChange}  /> 
                     {this.props.deductibleName}
-                        
-                     
+  
                 </label> 
             </div>
         );        

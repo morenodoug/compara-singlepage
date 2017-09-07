@@ -80,7 +80,8 @@ class App extends Component {
           <div className="col-md-8">
             <ProductTable  
               companies={this.props.data.allCompanies} 
-              filterByCompany = {this.state.filterByCompany}/>
+              filterByCompany = {this.state.filterByCompany}
+              filterByDeductibles = {this.state.filterByDeductibles}/>
           </div>
       </div>
     );

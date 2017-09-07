@@ -27,14 +27,23 @@ class ProductTable extends Component {
         });
         let flatOffersWithImage = [].concat.apply([], offersWithImage);
 
-        //generar cara offerRow
-        let offerRows = flatOffersWithImage.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
+
+        //filtrar por deductibles
+
+        let offersWithDeductibles = flatOffersWithImage.filter((offer) =>{
+            return this.props.filterByDeductibles[offer.deductible]
+        });
+          console.log('offersWithDeductibles');
+        console.log(offersWithDeductibles);
+        
+        //generar cada offerRow
+        let offerRows = offersWithDeductibles.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
         // console.log(flatOffersWithImage);
         // console.log(offerRows);
 
-        let showlength = (flatOffersWithImage.length === 1) ? 
-                        `${flatOffersWithImage.length} result` :
-                        `${flatOffersWithImage.length} results`;
+        let showlength = (offerRows.length === 1) ? 
+                        `${offerRows.length} result` :
+                        `${offerRows.length} results`;
 
         return (
             <div>
