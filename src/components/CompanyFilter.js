@@ -10,15 +10,20 @@ class CompanyFilter extends Component {
     }
 
     render() {
-        let filterCompanies = this.props.companiesInfo.map((company) =>( 
-            <CheckCompany 
-                key={company.id}   
-                company={company} 
-                checkedInput = {this.props.filterByCompany[company.id]}
-                updateFilterByCompany={this.props.updateFilterByCompany} /> )
-        
-        );
-        
+        let filterCompanies =null;
+        if(this.props.companiesInfo){
+            filterCompanies = this.props.companiesInfo.map((company) =>( 
+                <CheckCompany 
+                    key={company.id}   
+                    company={company} 
+                    checkedInput = {this.props.filterByCompany[company.id]}
+                    updateFilterByCompany={this.props.updateFilterByCompany} /> )
+            
+            );
+            
+
+        }
+
         console.log(filterCompanies );
 
         return(

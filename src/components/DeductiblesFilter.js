@@ -10,14 +10,19 @@ class DeductiblesFilter extends Component {
 
 
     render() {
-        let objectKeys = Object.keys(this.props.filterByDeductibles);
-        let deductibleFilters = objectKeys.map((key) =>
-            (<CheckDeductible 
-                key={key}
-                checkedInput ={this.props.filterByDeductibles[key]} 
-                deductibleName={key}
-                updateFilterByDeductibles ={this.props.updateFilterByDeductibles}  /> 
-            ));
+        let deductibleFilters = null;
+        if(this.props.filterByDeductibles){
+            let objectKeys = Object.keys(this.props.filterByDeductibles);
+            deductibleFilters = objectKeys.map((key) =>
+                (<CheckDeductible 
+                    key={key}
+                    checkedInput ={this.props.filterByDeductibles[key]} 
+                    deductibleName={key}
+                    updateFilterByDeductibles ={this.props.updateFilterByDeductibles}  /> 
+                ));            
+
+        }
+
 
 
         return(

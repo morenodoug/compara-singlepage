@@ -37,11 +37,7 @@ class App extends Component {
 
 
     this.state ={
-      allData: this.props.data.allCompanies,
-      allCompanies:companies,
-      filterByCompany,
-      filterByDeductibles,
-      filterByPrice
+  
     }
    
 

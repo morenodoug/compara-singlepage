@@ -9,47 +9,56 @@ class ProductTable extends Component {
     }
 
     render(){
-        //filtrar por compañia
-        let filterByCompany = this.props.companies.filter( (company) =>{
-            return this.props.filterByCompany[company.id];
-               
-        });
-        console.log('product table')
-        console.log(filterByCompany.length);
+        let showlength = null;
+        let offerRows = null;
+        if(this.props.companies){
 
-        //agregar nombre de la compañia e imagen a cada oferta
-        let offersWithImage = filterByCompany.map((company) => {
-            return company.offers.map((offer) => {
-                offer.imageCompanyUrl = company.imageUrl;
-                offer.name = company.name;
-                return offer;
+            //filtrar por compañia
+            let filterByCompany = this.props.companies.filter( (company) =>{
+                return this.props.filterByCompany[company.id];
+                
             });
-        });
-        let flatOffersWithImage = [].concat.apply([], offersWithImage);
+            console.log('product table')
+            console.log(filterByCompany.length);
+
+            //agregar nombre de la compañia e imagen a cada oferta
+            let offersWithImage = filterByCompany.map((company) => {
+                return company.offers.map((offer) => {
+                    offer.imageCompanyUrl = company.imageUrl;
+                    offer.name = company.name;
+                    return offer;
+                });
+            });
+            let flatOffersWithImage = [].concat.apply([], offersWithImage);
 
 
-        //filtrar por deductibles
-        let offersWithDeductibles = flatOffersWithImage.filter((offer) =>{
-            return this.props.filterByDeductibles[offer.deductible]
-        });
-          console.log('offersWithDeductibles');
-        console.log(offersWithDeductibles);
-        
+            //filtrar por deductibles
+            let offersWithDeductibles = flatOffersWithImage.filter((offer) =>{
+                return this.props.filterByDeductibles[offer.deductible]
+            });
+            console.log('offersWithDeductibles');
+            console.log(offersWithDeductibles);
+            
 
-        //offer with prices
-        let offersWithPrices = offersWithDeductibles.filter((offer) =>{
-            return offer.price<= this.props.filterByPrice
-        });
-        
+            //offer with prices
+            let offersWithPrices = offersWithDeductibles.filter((offer) =>{
+                return offer.price<= this.props.filterByPrice
+            });
+            
 
-        //generar cada offerRow
-        let offerRows = offersWithPrices.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
-        // console.log(flatOffersWithImage);
-        // console.log(offerRows);
+            //generar cada offerRow
+            offerRows = offersWithPrices.map((offer) => (<OfferRow key={offer.id} info={offer}/>))
+            // console.log(flatOffersWithImage);
+            // console.log(offerRows);
 
-        let showlength = (offerRows.length === 1) ? 
-                        `${offerRows.length} result` :
-                        `${offerRows.length} results`;
+            showlength = (offerRows.length === 1) ? 
+                            `${offerRows.length} result` :
+                            `${offerRows.length} results`;
+
+
+
+
+        }
 
         return (
             <div>
