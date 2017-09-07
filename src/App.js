@@ -16,11 +16,10 @@ class App extends Component {
     this.updateFilterByCompany = this.updateFilterByCompany.bind(this);
     this.updateFilterByDeductibles = this.updateFilterByDeductibles.bind(this);
     this.updateFilterByPrice = this.updateFilterByPrice.bind(this);
-
- 
+    this.updateOrderBy = this.updateOrderBy.bind(this); 
 
     this.state ={
-  
+       orderBy:''
     }
    
 
@@ -51,7 +50,8 @@ class App extends Component {
         allCompanies:companies,
         filterByCompany,
         filterByDeductibles,
-        filterByPrice
+        filterByPrice,
+        orderBy:''
       }
     );
       
@@ -95,6 +95,14 @@ class App extends Component {
       };
     })
   }
+  
+  updateOrderBy(newOrderBy){
+    this.setState((prevState,props) => {
+      return {
+        orderBy: newOrderBy
+      }
+    });
+  }
 
   render() {
     return (
@@ -115,7 +123,9 @@ class App extends Component {
               companies={this.state.allData} 
               filterByCompany = {this.state.filterByCompany}
               filterByDeductibles = {this.state.filterByDeductibles}
-              filterByPrice = {this.state.filterByPrice}/>
+              filterByPrice = {this.state.filterByPrice}
+              orderBy = {this.state.orderBy}
+              updateOrderBy = {this.updateOrderBy}/>
           </div>
       </div>
     );

@@ -5,7 +5,12 @@ class ProductTable extends Component {
 
     constructor(props) {
         super(props);
+        this.onChangeOrderBy = this.onChangeOrderBy.bind(this);
+
         // console.log(this.props.companies)
+    }
+    onChangeOrderBy(e){
+        this.props.updateOrderBy(e.target.value);
     }
 
     render(){
@@ -44,6 +49,34 @@ class ProductTable extends Component {
             let offersWithPrices = offersWithDeductibles.filter((offer) =>{
                 return offer.price<= this.props.filterByPrice
             });
+
+            if(this.props.orderBy == "PRICE_DESC"){
+ 
+                offersWithPrices.sort((a,b) =>{
+                    return b.price-a.price
+                });
+            }
+
+            if(this.props.orderBy == "PRICE_ASC"){
+ 
+                offersWithPrices.sort((a,b) =>{
+                    return a.price-b.price
+                });
+            }    
+
+            if(this.props.orderBy == "DEDUC_DESC"){
+ 
+                offersWithPrices.sort((a,b) =>{
+                    return b.deductible-a.deductible
+                });
+            }
+
+            if(this.props.orderBy == "DEDUC_ASC"){
+ 
+                offersWithPrices.sort((a,b) =>{
+                    return a.deductible-b.deductible
+                });
+            }                     
             
 
             //generar cada offerRow
@@ -67,11 +100,12 @@ class ProductTable extends Component {
                         <div className="col-md-6"><h3>{showlength} </h3></div>
                         <div className="col-md-6">
 
-                            <select value="lime"  className="form-control">
-                                <option value="grapefruit">Grapefruit</option>
-                                <option value="lime">Lime</option>
-                                <option value="coconut">Coconut</option>
-                                <option value="mango">Mango</option>
+                            <select   value={this.props.orderBy} onChange={this.onChangeOrderBy} className="form-control">
+                                <option value = ""></option>
+                                <option value = "PRICE_DESC">price descending</option>
+                                <option value = "PRICE_ASC" >price ascending</option>
+                                <option value = "DEDUC_DESC" >deductible descending</option>
+                                <option value = "DEDUC_ASC" >deductible ascending</option>
                             </select>                            
                         </div>
                     </div>
