@@ -101,7 +101,7 @@ class ProductTable extends Component {
                         <div className="col-md-6">
 
                             <select   value={this.props.orderBy} onChange={this.onChangeOrderBy} className="form-control">
-                                <option value = ""></option>
+                                <option value = "">Sort By...</option>
                                 <option value = "PRICE_DESC">price descending</option>
                                 <option value = "PRICE_ASC" >price ascending</option>
                                 <option value = "DEDUC_DESC" >deductible descending</option>
@@ -111,7 +111,7 @@ class ProductTable extends Component {
                     </div>
 
                 </div>
-                <div className="offer-list">
+                <div className="offer-list row">
                     {offerRows}
 
                 </div>

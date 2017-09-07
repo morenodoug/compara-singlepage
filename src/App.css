@@ -1,4 +1,29 @@
 .offer-list {
     overflow: auto;
-    height: 90vh;
+    height: 85vh;
+}
+
+.margin-deductible {
+    margin-right: 3em;
+}
+
+.offer-row {
+    border: 2px solid black;
+    margin-bottom: 2em;
+}
+
+.root-container {
+    padding-top: 3em;
+}
+
+.img-company {
+    padding-top: 1em;
+}
+
+.align-vertical {
+    padding-top: 3em;
+}
+
+.offer-info {
+    padding-left: 10em;
 }

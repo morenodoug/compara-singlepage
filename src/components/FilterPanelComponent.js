@@ -32,20 +32,11 @@ class FilterPanelComponent extends Component {
                     </div>
 
                 </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <DeduticblesFilter 
-                            filterByDeductibles={this.props.filterByDeductibles}
-                            updateFilterByDeductibles ={this.props.updateFilterByDeductibles }/>
-                    </div>
-                    
 
-                </div>
                 <div className="row">
                     <h3>Price Ranges</h3>
                     <div className="col-md-12">
-
-                        
+    
                         <div className="form-inline">
 
                             <div className="form-group">
@@ -72,23 +63,24 @@ class FilterPanelComponent extends Component {
 
                                 <label > {this.props.filterByPrice}</label>    
 
-
-
                             </div>
 
-                    
-
                         </div>
-                
-
-
-         
-                    
 
                     </div>
 
 
                 </div>
+
+                <div className="row">
+                    <div className="col-md-12 form-inline">
+                        <DeduticblesFilter 
+                            filterByDeductibles={this.props.filterByDeductibles}
+                            updateFilterByDeductibles ={this.props.updateFilterByDeductibles }/>
+                    </div>
+                    
+
+                </div>                
 
  
           

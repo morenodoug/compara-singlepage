@@ -17,7 +17,7 @@ class CheckDeductible extends Component {
     render(){
 
         return(
-            <div  className="col-md-1">
+            <div  className="form-group margin-deductible">
                 <label>
                     <input
                         name= {this.props.deductibleName}
