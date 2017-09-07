@@ -13,28 +13,11 @@ class App extends Component {
     super(props);
 
 
-    let companies = this.props.data.allCompanies.map((company) => ({ name: company.name, id: company.id }));
-
     this.updateFilterByCompany = this.updateFilterByCompany.bind(this);
     this.updateFilterByDeductibles = this.updateFilterByDeductibles.bind(this);
     this.updateFilterByPrice = this.updateFilterByPrice.bind(this);
 
-    console.log(`companies:`);
-    console.log(companies);
-    let filterByCompany ={};
-    let filterByDeductibles={
-      '0': true,
-      '3': true,
-      '5': true,
-      '7': true
-    }
-
-    let filterByPrice=50;
-
-    companies.forEach((element) => {
-      filterByCompany[element.id] =true;  
-    });
-
+ 
 
     this.state ={
   
