@@ -42,7 +42,10 @@ class FilterPanelComponent extends Component {
 
                 </div>
                 <div className="row">
+                    <h3>Price Ranges</h3>
                     <div className="col-md-12">
+
+                        
                         <div className="form-inline">
 
                             <div className="form-group">
