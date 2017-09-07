@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
+import CheckDeductible from './CheckDeductible'
 
-
-function checkDeductible(props){
-    return(
-        <div key={props.id} className="row">
-            <label><input name={props.id} type="checkbox"  checked="true"/> {props.name}  </label> 
-        </div>
-    )
-}
 class DeductiblesFilter extends Component {
 
     constructor(props){
@@ -17,16 +10,25 @@ class DeductiblesFilter extends Component {
 
 
     render() {
-        let filterCompanies = this.props.companiesInfo.map((company) =>( checkDeductible(company)));
-        console.log(filterCompanies );
+        let objectKeys = Object.keys(this.props.filterByDeductibles);
+        let deductibleFilters = objectKeys.map((key) =>
+            (<CheckDeductible 
+                key={key}
+                checkedInput ={this.props.filterByDeductibles[key]} 
+                deductibleName={key}
+                updateFilterByDeductibles ={this.props.updateFilterByDeductibles}  /> 
+            ));
+
 
         return(
 
             <div>
                 <div className="row">
-                    <h3>Companies</h3>
+                    <h3>Deductibles</h3>
+    
+                    {deductibleFilters}
                 </div>
-                {filterCompanies}
+
             </div>
         );
         
