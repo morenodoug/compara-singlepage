@@ -1,5 +1,10 @@
 ### Para probar el proyecto se debe tener instalado el manejador de paquetes [NPM](https://github.com/npm/npm).
 
+1. Clonar el repositorio
+2. Moverse a la carpeta donde se  clono el repositorio
+3. Ejecutar el comando  **npm install** para instalar las dependencias
+4. Ejecutar el comando **npm start** para iniciar el servidorde prueba 
+5. Ir a la direccion [http://localhost:3000/](http://localhost:3000/). en el navegador
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
