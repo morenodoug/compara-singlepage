@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import './App.css';
 import ProductTable from '../src/components/ProductTable'
 import FilterPanelComponent from '../src/components/FilterPanelComponent';
+import getItems from '../src/client'
 
 
 class App extends Component {
 
   constructor(props){
+    
     super(props);
-    console.log(this.props);
+
 
     let companies = this.props.data.allCompanies.map((company) => ({ name: company.name, id: company.id }));
 
@@ -35,6 +37,7 @@ class App extends Component {
 
 
     this.state ={
+      allData: this.props.data.allCompanies,
       allCompanies:companies,
       filterByCompany,
       filterByDeductibles,
@@ -42,6 +45,43 @@ class App extends Component {
     }
    
 
+  }
+  componentDidMount(){
+
+    let filterByCompany ={};
+    let filterByDeductibles={
+      '0': true,
+      '3': true,
+      '5': true,
+      '7': true
+    }
+
+    let filterByPrice=50;
+
+     getItems().then((data) =>{
+      
+    let companies = data.allCompanies.map((company) => ({ name: company.name, id: company.id }));
+
+    companies.forEach((element) => {
+      filterByCompany[element.id] =true;  
+    });
+
+    this.setState(
+      {
+        allData: data.allCompanies,
+        allCompanies:companies,
+        filterByCompany,
+        filterByDeductibles,
+        filterByPrice
+      }
+    );
+      
+    console.log('asdasdasdsad')
+    console.log(companies);
+    console.log(data)
+
+    })
+    
   }
 
   updateFilterByCompany(idCompany,value){
@@ -82,7 +122,7 @@ class App extends Component {
       <div className="row">
           <div className="col-md-4">
             <FilterPanelComponent 
-             companiesInfo = {this.props.companiesInfo} 
+             companiesInfo = {this.state.allCompanies} 
              filterByCompany = {this.state.filterByCompany}
              updateFilterByCompany = {this.updateFilterByCompany}
              filterByDeductibles = {this.state.filterByDeductibles}
@@ -93,7 +133,7 @@ class App extends Component {
           </div>
           <div className="col-md-8">
             <ProductTable  
-              companies={this.props.data.allCompanies} 
+              companies={this.state.allData} 
               filterByCompany = {this.state.filterByCompany}
               filterByDeductibles = {this.state.filterByDeductibles}
               filterByPrice = {this.state.filterByPrice}/>

@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
