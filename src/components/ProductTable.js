@@ -17,7 +17,7 @@ class ProductTable extends Component {
     render(){
         let showlength = null;
         let offerRows = null;
-            console.log( ` eh: ${this.props.companies}`);
+            // console.log( ` eh: ${this.props.companies}`);
 
         
 
@@ -44,8 +44,8 @@ class ProductTable extends Component {
             let offersWithDeductibles = flatOffersWithImage.filter((offer) =>{
                 return this.props.filterByDeductibles[offer.deductible]
             });
-            console.log('offersWithDeductibles');
-            console.log(offersWithDeductibles);
+            // console.log('offersWithDeductibles');
+            // console.log(offersWithDeductibles);
             
 
             //offer with prices
@@ -53,28 +53,28 @@ class ProductTable extends Component {
                 return offer.price<= this.props.filterByPrice
             });
 
-            if(this.props.orderBy == "PRICE_DESC"){
+            if(this.props.orderBy === "PRICE_DESC"){
  
                 offersWithPrices.sort((a,b) =>{
                     return b.price-a.price
                 });
             }
 
-            if(this.props.orderBy == "PRICE_ASC"){
+            if(this.props.orderBy === "PRICE_ASC"){
  
                 offersWithPrices.sort((a,b) =>{
                     return a.price-b.price
                 });
             }    
 
-            if(this.props.orderBy == "DEDUC_DESC"){
+            if(this.props.orderBy === "DEDUC_DESC"){
  
                 offersWithPrices.sort((a,b) =>{
                     return b.deductible-a.deductible
                 });
             }
 
-            if(this.props.orderBy == "DEDUC_ASC"){
+            if(this.props.orderBy === "DEDUC_ASC"){
  
                 offersWithPrices.sort((a,b) =>{
                     return a.deductible-b.deductible
@@ -90,12 +90,6 @@ class ProductTable extends Component {
             showlength = (offerRows.length === 1) ? 
                             `${offerRows.length} result` :
                             `${offerRows.length} results`;
-
-
-
-
-        
-
         return (
             <div>
                 <div > 

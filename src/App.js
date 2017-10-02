@@ -37,39 +37,22 @@ class App extends Component {
   componentDidMount(){
 
     let filterByCompany ={};
-    let filterByDeductibles={
-      '0': true,
-      '3': true,
-      '5': true,
-      '7': true
-    }
 
-    let filterByPrice=50;
+     getItems()
+     .then((data) =>{
+        let companies = data.allCompanies.map((company) => ({ name: company.name, id: company.id }));
 
-     getItems().then((data) =>{
-      
-    let companies = data.allCompanies.map((company) => ({ name: company.name, id: company.id }));
-
-    companies.forEach((element) => {
-      filterByCompany[element.id] =true;  
+        companies.forEach((element) => {
+          filterByCompany[element.id] =true;  
+        });
+        this.setState((prevState) =>{
+          return Object.assign({},
+                              prevState,
+                              {allData: data.allCompanies},
+                              {allCompanies:companies},
+                              {filterByCompany} );
+        })
     });
-
-    this.setState(
-      {
-        allData: data.allCompanies,
-        allCompanies:companies,
-        filterByCompany,
-        filterByDeductibles,
-        filterByPrice,
-        orderBy:''
-      }
-    );
-      
-    // console.log('asdasdasdsad')
-    // console.log(companies);
-    // console.log(data)
-
-    })
     
   }
 

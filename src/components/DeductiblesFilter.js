@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import CheckDeductible from './CheckDeductible'
 
+
+
+
 class DeductiblesFilter extends Component {
 
     constructor(props){
         super(props);
  
     }
-
-
     render() {
-        let deductibleFilters = null;
+        let deductibleFilters = {};
    
             let objectKeys = Object.keys(this.props.filterByDeductibles);
             deductibleFilters = objectKeys.map((key) =>
@@ -20,8 +21,6 @@ class DeductiblesFilter extends Component {
                     deductibleName={key}
                     updateFilterByDeductibles ={this.props.updateFilterByDeductibles}  /> 
                 ));            
-
-
         return(
 
             <div>
@@ -33,8 +32,7 @@ class DeductiblesFilter extends Component {
 
             </div>
         );
-        
- 
+
     }
 }
 

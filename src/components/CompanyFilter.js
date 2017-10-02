@@ -1,43 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CheckCompany from './CheckCompany';
 
 
-class CompanyFilter extends Component {
+export default function  CompanyFilter(props){
 
-    constructor(props){
-        super(props);
- 
-    }
+    let filterCompanies = props.companiesInfo.map((company) =>( 
+        <CheckCompany 
+            key={company.id}   
+            company={company} 
+            checkedInput = {props.filterByCompany[company.id]}
+            updateFilterByCompany={props.updateFilterByCompany} /> )
+    );    
+    return(
 
-    render() {
-        let filterCompanies =null;
-        if(this.props.companiesInfo){
-            filterCompanies = this.props.companiesInfo.map((company) =>( 
-                <CheckCompany 
-                    key={company.id}   
-                    company={company} 
-                    checkedInput = {this.props.filterByCompany[company.id]}
-                    updateFilterByCompany={this.props.updateFilterByCompany} /> )
-            
-            );
-            
-
-        }
-
-        console.log(filterCompanies );
-
-        return(
-
-            <div>
-                <div className="row">
-                    <h3>Companies</h3>
-                </div>
-                {filterCompanies}
+        <div>
+            <div className="row">
+                <h3>Companies</h3>
             </div>
-        );
-        
- 
-    }
+            {filterCompanies}
+        </div>
+    );
 }
-
-export default CompanyFilter;
