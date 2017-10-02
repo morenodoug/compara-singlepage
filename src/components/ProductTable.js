@@ -13,18 +13,21 @@ class ProductTable extends Component {
         this.props.updateOrderBy(e.target.value);
     }
 
+
     render(){
         let showlength = null;
         let offerRows = null;
-        if(this.props.companies){
+            console.log( ` eh: ${this.props.companies}`);
+
+        
 
             //filtrar por compañia
             let filterByCompany = this.props.companies.filter( (company) =>{
                 return this.props.filterByCompany[company.id];
                 
             });
-            console.log('product table')
-            console.log(filterByCompany.length);
+            // console.log('product table')
+            // console.log(filterByCompany.length);
 
             //agregar nombre de la compañia e imagen a cada oferta
             let offersWithImage = filterByCompany.map((company) => {
@@ -91,7 +94,7 @@ class ProductTable extends Component {
 
 
 
-        }
+        
 
         return (
             <div>

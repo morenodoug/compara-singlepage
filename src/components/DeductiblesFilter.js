@@ -11,7 +11,7 @@ class DeductiblesFilter extends Component {
 
     render() {
         let deductibleFilters = null;
-        if(this.props.filterByDeductibles){
+   
             let objectKeys = Object.keys(this.props.filterByDeductibles);
             deductibleFilters = objectKeys.map((key) =>
                 (<CheckDeductible 
@@ -20,9 +20,6 @@ class DeductiblesFilter extends Component {
                     deductibleName={key}
                     updateFilterByDeductibles ={this.props.updateFilterByDeductibles}  /> 
                 ));            
-
-        }
-
 
 
         return(

@@ -82,10 +82,6 @@ class FilterPanelComponent extends Component {
 
                 </div>                
 
- 
-          
-        
-
             </div>
  
         );

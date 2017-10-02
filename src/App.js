@@ -19,7 +19,17 @@ class App extends Component {
     this.updateOrderBy = this.updateOrderBy.bind(this); 
 
     this.state ={
-       orderBy:''
+       orderBy:'',
+       allData:[],
+       allCompanies: [],
+       filterByDeductibles: {
+            '0': true,
+            '3': true,
+            '5': true,
+            '7': true
+      },
+      filterByPrice:50    
+
     }
    
 
@@ -55,9 +65,9 @@ class App extends Component {
       }
     );
       
-    console.log('asdasdasdsad')
-    console.log(companies);
-    console.log(data)
+    // console.log('asdasdasdsad')
+    // console.log(companies);
+    // console.log(data)
 
     })
     
