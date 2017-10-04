@@ -1,3 +1,7 @@
+app con fines educativos. Su finalidad es conocer los principios de desarrollo de Reactjs. Puede revisar el  resultado final en: [https://douglas-test-react.herokuapp.com/](https://douglas-test-react.herokuapp.com/)
+
+### 
+
 ### Para probar el proyecto se debe tener instalado el manejador de paquetes [NPM](https://github.com/npm/npm).
 
 1. Clonar el repositorio
